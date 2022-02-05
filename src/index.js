@@ -1,5 +1,5 @@
- import Product from './components/product';
-import ReactDOM from 'react-dom'
-
-
-ReactDOM.render(<Product/>,document.getElementById('root'));
+ import ReactDOM from 'react-dom'
+ import 'bootstrap/dist/css/bootstrap.min.css'
+import Products from './components/functional/products';
+ReactDOM.render(<Products/>,document.getElementById('root'));
+  
