@@ -47,7 +47,7 @@ class Product extends Component {
   };
 
   handleDelete = () => {
-    console.log();
+     this.props.onDelete(this.props.id)
   };
 
   format() {
