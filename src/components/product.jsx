@@ -1,32 +1,38 @@
 import React, { Component } from "react";
 
 class Product extends Component {
-  state = {
-    count: 122,
-    product: this.props.count,
-  };
+
   render() {
     const { productName } = this.props;
 
     return (
       <>
         <div>
-          <span ClassName="m-2 text-info  "> {productName}</span>
-          <span className="m-2 badge">{this.format()}</span>
+          <span className="m-2 text-info "> {productName}</span>
+
+          <span className='m-2 badge bg-primary'>{this.format()}</span>
           <button
             onClick={this.handleIncrement}
             className="m-2 btn-sm btn-success"
           >
             +
           </button>
+
+
+
           <button
             onClick={this.handleDecrement}
             className="m-2 btn btn-sm btn-warning"
           >
             -
           </button>
+
+
+
+
+          
           <button
-            onClick={this.handleDelete(55)}
+            onClick={this.handleDelete}
             className="m-2 btn-sm btn-danger"
           >
             delete
@@ -47,14 +53,16 @@ class Product extends Component {
   };
 
   handleDelete = () => {
-     this.props.onDelete(this.props.id)
+    console.log("this.props.id")
+    console.log(this.props.id)
+     this.props.onDelete(this.props.id);
   };
 
   format() {
-    if (this.state.count === 0) {
-      return "aero";
+    if (this.props.count === 0) {
+      return "zero";
     } else {
-      return this.state.count;
+      return this.props.count;
     }
   }
 }

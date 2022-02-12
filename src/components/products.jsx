@@ -10,18 +10,44 @@ class Products extends Component {
     ],
   };
   render() {
+
     return (
       <>
+      <button className='btn btn-primary' onClick={this.handleReset}> Reset</button>
+
         {this.state.products.map((p, index) => (
-          <Product onDelete={this.handleDelete} id={p.id} key={index} productName={p.productName} count={p.count} />
+          <Product onDelete={this.handleDelete} id={p.id} key={index} productName={p.productName} count={p.count}>lorrm  eposon </Product>
         ))}
       </>
     );
   }
 
   handleDelete=(productId)=>{
-      console.log(productId)
+  const newProducts =this.state.products.filter(p=>p.id !==productId);
+  this.setState({products:newProducts})
+    
   }
+  
+
+  handleIncrement=(productId)=>{
+    const newProducts = [...this.state.products];
+    const index=newProducts.findIndex(p=>p.id===productId)
+    this.setState({products:newProducts})
+    newProducts[index].count+=1;
+    this.setState({products:newProducts})
+    }
+    
+
+handleReset(){
+  // const newProducts= 
+  console.log(this.state)
+  // this.state.products.map(p=>{
+  //   // p.count=0;
+  //   console.log(p)
+  //   return p
+  // });
+  // this.setState({producs:newProducts})
+ }
 
 }
 
